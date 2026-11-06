@@ -133,7 +133,7 @@ def build_readme(data: list[dict], today: str) -> str:
     total = sum(len(s["links"]) for s in data)
     cats = [(c, list(g)) for c, g in groupby(data, key=lambda s: s["category"])]
     out = [f"# {SITE_TITLE}", "", f"{SITE_DESC} {total} links, maintained by {OWNER}.", "",
-           f"Website: browse the searchable version at {SITE_URL}", "", f"Last updated: {today}", "",
+           f"Website: browse the searchable version at <{SITE_URL}>", "", f"Last updated: {today}", "",
            "## Updating the list", "",
            "1. Edit `data/links.json`.",
            "2. Run `python3 tools/build.py` (regenerates `index.html` and this README).",

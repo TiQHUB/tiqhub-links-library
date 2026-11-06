@@ -2,7 +2,7 @@
 
 Curated links for Microsoft 365 and Intune administration, security operations, penetration testing, and compliance (CMMC, ISO 42001). 528 links, maintained by TiQHUB Innovators.
 
-Website: browse the searchable version at https://tiqhub.github.io/tiqhub-links-library/
+Website: browse the searchable version at <https://tiqhub.github.io/tiqhub-links-library/>
 
 Last updated: 2026-11-06
 
