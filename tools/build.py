@@ -24,6 +24,7 @@ SITE_TITLE = "M365, Intune & Security Link Library"
 SITE_DESC = ("Curated links for Microsoft 365 and Intune administration, security operations, "
              "penetration testing, and compliance (CMMC, ISO 42001).")
 OWNER = "TiQHUB Innovators"
+SITE_URL = "https://tiqhub.github.io/tiqhub-links-library/"
 
 
 def slug(text: str) -> str:
@@ -132,8 +133,7 @@ def build_readme(data: list[dict], today: str) -> str:
     total = sum(len(s["links"]) for s in data)
     cats = [(c, list(g)) for c, g in groupby(data, key=lambda s: s["category"])]
     out = [f"# {SITE_TITLE}", "", f"{SITE_DESC} {total} links, maintained by {OWNER}.", "",
-           "Website: enable GitHub Pages for this repo, then browse the searchable version at "
-           "`https://<owner>.github.io/<repo>/`.", "", f"Last updated: {today}", "",
+           f"Website: browse the searchable version at {SITE_URL}", "", f"Last updated: {today}", "",
            "## Updating the list", "",
            "1. Edit `data/links.json`.",
            "2. Run `python3 tools/build.py` (regenerates `index.html` and this README).",
