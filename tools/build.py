@@ -4,7 +4,8 @@
 Usage (from the repo root):
     python3 tools/build.py
 
-Edit data/links.json to add, move, or remove links, then rerun this script
+Edit data/links.json to add, move, or remove links (each link can carry a
+"note" describing what you get from it; it shows as a hover tooltip), then rerun this script
 and commit the regenerated index.html and README.md.
 """
 from __future__ import annotations
@@ -67,6 +68,7 @@ def build_html(data: list[dict], today: str) -> str:
     )
 
     body = []
+    n_link = 0
     for c, secs in cats:
         n = sum(len(s["links"]) for s in secs)
         body.append(f'    <section class="cat" id="{slug(c)}" data-cat="{e(slug(c))}">')
@@ -75,13 +77,18 @@ def build_html(data: list[dict], today: str) -> str:
             body.append(f'      <div class="sub">\n        <h3 id="{slug(s["section"])}">{e(s["section"])}</h3>')
             body.append('        <ul class="grid">')
             for l in s["links"]:
+                n_link += 1
                 icon = (f'<img src="{e(l["icon"])}" alt="" width="16" height="16" loading="lazy">'
                         if l.get("icon") else '<span class="ph" aria-hidden="true"></span>')
                 desc = f'<span class="s">{e(l["desc"])}</span>' if l.get("desc") else ""
+                # "note" = what the visitor gets from the link; shown as a hover/focus tooltip.
+                note = l.get("note", "")
+                described = f' aria-describedby="n{n_link}"' if note else ""
+                tip = f'<span class="tip" id="n{n_link}" role="tooltip">{e(note)}</span>' if note else ""
                 body.append(
-                    f'          <li><a class="l" href="{e(l["url"])}" target="_blank" rel="noopener noreferrer">'
+                    f'          <li><a class="l" href="{e(l["url"])}" target="_blank" rel="noopener noreferrer"{described}>'
                     f'{icon}<span class="txt"><span class="t">{e(l["name"])}</span>{desc}'
-                    f'<span class="d">{e(domain(l["url"]))}</span></span></a></li>'
+                    f'<span class="d">{e(domain(l["url"]))}</span></span></a>{tip}</li>'
                 )
             body.append("        </ul>\n      </div>")
         body.append("    </section>")
@@ -101,13 +108,20 @@ def build_html(data: list[dict], today: str) -> str:
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wght@700;800&display=swap">
   <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/theme.js"></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to links</a>
   <div class="wrap">
     <header class="site">
-      <h1>{e(SITE_TITLE)}</h1>
+      <div class="top">
+        <h1>{e(SITE_TITLE)}</h1>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" hidden>
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
       <p>{e(SITE_DESC)}</p>
       <p class="meta"><b>{total}</b> links · updated <time datetime="{today}">{today}</time> · press <kbd>/</kbd> to search</p>
     </header>

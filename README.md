@@ -1,6 +1,6 @@
 # M365, Intune & Security Link Library
 
-Curated links for Microsoft 365 and Intune administration, security operations, penetration testing, and compliance (CMMC, ISO 42001). 528 links, maintained by TiQHUB Innovators.
+Curated links for Microsoft 365 and Intune administration, security operations, penetration testing, and compliance (CMMC, ISO 42001). 532 links, maintained by TiQHUB Innovators.
 
 Website: browse the searchable version at <https://tiqhub.github.io/tiqhub-links-library/>
 
@@ -116,6 +116,7 @@ Last updated: 2026-11-06
 ### Entra ID & Identity
 
 - [AdminDroid](https://blog.admindroid.com/break-glass-account-for-office-365-login-during-emergency-situations/) - Break Glass Account Setup Guide
+- [Entra Documentation](https://entradocumentation.com/) - Generate Entra ID Tenant Config Docs as PDF (Ugur Koç)
 - [Entra Mind Maps](https://entra.news/p/entra-mind-maps) - by Merill Fernando
 - [Graph Permissions Explorer](https://graphpermissions.merill.net/) - What Each Microsoft Graph Permission Grants (Merill Fernando)
 - [idPowerToys](https://idpowertoys.merill.net/) - Conditional Access Documenter & Visualizer (Merill Fernando)
@@ -138,6 +139,7 @@ Last updated: 2026-11-06
 
 ### PowerShell & Automation
 
+- [Agents For Admins](https://agentsforadmins.com/) - Catalog of Ready-to-Use Security Copilot Agents (Ugur Koç)
 - [Graph X-Ray](https://graphxray.merill.net/) - See the Graph API Calls Behind Portal Clicks (Merill Fernando)
 - [IntuneAutomation](https://intuneautomation.com/) - Library of Ready-to-Run Intune PowerShell Scripts (Ugur Koç)
 - [o365info](https://o365info.com/certificate-based-authentication/) - Cert-Based Auth for PowerShell Automation
@@ -167,7 +169,9 @@ Last updated: 2026-11-06
 - [Device Offboarding Manager](https://intuneoffboarding.com/) - Bulk Offboard Devices from Intune, Autopilot & Entra (Ugur Koç)
 - [Get-IntuneAssignments](https://www.powershellgallery.com/packages/Get-IntuneAssignments/1.0.15) - PowerShell Gallery module to list Intune assignments
 - [Intune Assignment Checker](https://www.intuneassignments.com/) - Audit Policy & App Assignments by User, Group, or Device (Ugur Koç)
+- [Intune Monitoring](https://intunemonitoring.com/) - Azure Workbook Dashboards for Real-Time Intune Monitoring (Ugur Koç)
 - [Intune Settings Catalog Viewer](https://intunesettings.app/)
+- [IntuneChangelog](https://intunechangelog.com/) - Timeline of Intune Configuration Changes (Ugur Koç)
 - [IntuneGet](https://intuneget.com/) - Deploy Winget Apps to Intune Without Manual Packaging (Ugur Koç)
 - [MS Eval Center](https://www.microsoft.com/en-in/evalcenter/evaluate-windows-11-microsoft-365-lab-kit) - Windows 11 + M365 Deployment Lab Kit
 - [OSDeploy](https://osd.osdeploy.com/) - OS Deployment Toolkit
